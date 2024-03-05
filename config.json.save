@@ -57,8 +57,8 @@
     "train_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/home/rajashree/PICK-pytorch/data/passport/dataset2/train.csv",
-            "boxes_and_transcripts_folder":"boxes",
+            "files_name":"/home/rajashree/PICK-pytorch/data/passport/train.csv",
+            "boxes_and_transcripts_folder":"boxes_trans",
             "images_folder":"images",
             "entities_folder":"entities",
             "iob_tagging_type":"box_level",
@@ -69,9 +69,9 @@
     "validation_dataset": {
         "type": "PICKDataset",
         "args": {
-            "files_name":"/home/rajashree/PICK-pytorch/data/passport/dataset2/train.csv",
-            "boxes_and_transcripts_folder":"boxes",
-            "images_folder":"images",
+            "files_name":"/home/rajashree/PICK-pytorch/data/tra",
+            "boxes_and_transcripts_folder":"boxes_trans",
+            "images_folder":"images1930",
             "entities_folder":"entities",
             "iob_tagging_type":"box_level",
             "resized_image_size": [480, 960],
@@ -116,7 +116,7 @@
     },
 
     "trainer": {
-        "epochs": 100,
+        "epochs": 1000,
         "gl_loss_lambda": 0.01,
         "log_step_interval": 10,
         "val_step_interval": 50,
@@ -127,7 +127,7 @@
 
         "monitor": "max overall-mEF",
         "monitor_open": true,
-        "early_stop": 40,
+        "early_stop": 500,
 
         "anomaly_detection": false,
         "tensorboard": false,

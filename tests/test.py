@@ -58,7 +58,7 @@ def test_resnet():
 
 
 def test_datasets():
-    filename = Path(__file__).parent.parent.joinpath('data/data_examples_root/train_samples_list.csv').as_posix()
+    filename = Path(__file__).parent.parent.joinpath('test.csv').as_posix()
     dataset = PICKDataset(files_name=filename,
                           iob_tagging_type='box_level',
                           resized_image_size=(480, 960))
@@ -129,8 +129,8 @@ def test_model_forward():
 
 
 def test_read_csv():
-    filename = r'/home/Wen/data/code/PICK/PICK-pytorch/data/data_examples_root/train_samples_list.csv'
-    # filename = r'/home/Wen/data/code/PICK/PICK-pytorch/data/data_examples_root/baseline_test.csv'
+    #filename = r'/home/Wen/data/code/PICK/PICK-pytorch/data/data_examples_root/train_samples_list.csv'
+    filename = r'/home/rajashree/PICK-pytorch/test.csv'
     res = pd.read_csv(filename, header=None,
                       names=['index', 'document_class', 'file_name'])
     item = res.iloc[0]

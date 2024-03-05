@@ -94,7 +94,8 @@ class BiLSTMLayer(nn.Module):
 
         # B*N, T, hidden_size
         x_seq, sorted_lengths, invert_order, h_0, c_0 = self.sort_tensor(x_seq, lenghts, initial[0], initial[0])
-        packed_x = nn.utils.rnn.pack_padded_sequence(x_seq, lengths=sorted_lengths, batch_first=True)
+        sorted_lengths_cpu = sorted_lengths.cpu()
+        packed_x = nn.utils.rnn.pack_padded_sequence(x_seq, lengths=sorted_lengths_cpu, batch_first=True)
         self.lstm.flatten_parameters()
         output, _ = self.lstm(packed_x)
         output, _ = nn.utils.rnn.pad_packed_sequence(output, batch_first=True,
